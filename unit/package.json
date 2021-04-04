@@ -5,7 +5,7 @@
   "description": "This repo contains a file with simple utilities to test with unit tests",
   "scripts": {
     "test": "jest",
-    "test:coverage": "jest -- --collectCoverage"
+    "test:coverage": "jest --collectCoverage"
   },
   "dependencies": {
     "node-fetch": "^2.6.1"

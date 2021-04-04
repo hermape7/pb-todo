@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const planetsEndpoint = "https://swapi.dev/api/planets";
 const { find } = require("lodash");
 
-const swRequest = async (method = "GET", endpoint) => {
+const swRequest = async (method, endpoint) => {
   const response = await fetch(endpoint, { method }).catch(error => {
     console.log(`Failed to get endpoint (${endpoint}): ${error}`);
     throw error;
