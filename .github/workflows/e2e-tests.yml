@@ -1,31 +1,12 @@
-name: Unit Tests
+name: E2E Tests
 
-on: [push]
+on:
+  workflow_run:
+    workflows: ["Unit Tests"]
+    types:
+      - completed
 
 jobs:
-  unit-tests:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies 
-        working-directory: ./unit
-        run: npm i
-      - name: Run unit tests with coverage
-        working-directory: ./unit
-        run: npm run test:coverage
-      - uses: actions/upload-artifact@v2
-        with:
-          name: coverage - ${{ matrix.node-version }}
-          path: ./unit/coverage
-
   cypress-run:
     runs-on: ubuntu-16.04
     steps:
