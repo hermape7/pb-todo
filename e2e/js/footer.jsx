@@ -17,7 +17,8 @@ var app = app || {};
 				clearButton = (
 					<button
 						className="clear-completed"
-						onClick={this.props.onClearCompleted}>
+						onClick={this.props.onClearCompleted}
+						data-cy="button-clear-completed">
 						Clear completed
 					</button>
 				);
@@ -28,31 +29,34 @@ var app = app || {};
 			var nowShowing = this.props.nowShowing;
 			return (
 				<footer className="footer">
-					<span className="todo-count">
+					<span className="todo-count" data-cy="span-count">
 						<strong>{this.props.count}</strong> {activeTodoWord} left
 					</span>
 					<ul className="filters">
 						<li>
 							<a
 								href="#/"
-								className={cx({selected: nowShowing === app.ALL_TODOS})}>
-									All
+								className={cx({ selected: nowShowing === app.ALL_TODOS })}
+								data-cy="filter-all">
+								All
 							</a>
 						</li>
 						{' '}
 						<li>
 							<a
 								href="#/active"
-								className={cx({selected: nowShowing === app.ACTIVE_TODOS})}>
-									Active
+								className={cx({ selected: nowShowing === app.ACTIVE_TODOS })}
+								data-cy="filter-active">
+								Active
 							</a>
 						</li>
 						{' '}
 						<li>
 							<a
 								href="#/completed"
-								className={cx({selected: nowShowing === app.COMPLETED_TODOS})}>
-									Completed
+								className={cx({ selected: nowShowing === app.COMPLETED_TODOS })}
+								data-cy="filter-completed">
+								Completed
 							</a>
 						</li>
 					</ul>

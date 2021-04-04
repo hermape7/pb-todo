@@ -138,10 +138,6 @@ var app = app || {};
 							type="checkbox"
 							onChange={this.toggleAll}
 							checked={activeTodoCount === 0}
-							// in normal application (I don't want to solve there a babel thingy or rewrite the app)
-							// I would reuse the shared DOM locators from the /shared folder
-							// data-cy={ITEMS_DOM.inputs.newItem}
-							data-cy="checkbox-toggle-all"
 						/>
 						<ul
 							className="todo-list"
@@ -179,6 +175,10 @@ var app = app || {};
 	});
 
 	var model = new app.TodoModel('react-todos');
+
+	if (window.Cypress) {
+		window.model = model
+	}
 
 	function render() {
 		React.render(

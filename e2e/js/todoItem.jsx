@@ -78,7 +78,8 @@ var app = app || {};
 				<li className={React.addons.classSet({
 					completed: this.props.todo.completed,
 					editing: this.props.editing
-				})}>
+				})}
+					data-cy={`item-${this.props.todo.title}`}>
 					<div className="view">
 						<input
 							className="toggle"

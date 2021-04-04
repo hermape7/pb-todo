@@ -1,10 +1,12 @@
 export const ITEMS_DOM = {
   inputs: {
-    newItem: "input-new-todo"
+    newItem: "input-new-todo",
+    editItem: "input-edit-todo-item"
   },
   checkboxes: {
-    all: "checkbox-toggle-all"
+    all: "checkbox-toggle-all",
+    item: "checkbox-item"
   },
   itemList: "list-todo-items",
-  getTodoItem: itemId => `todo-item-${itemId}`
+  getTodoItem: itemTitle => `item-${itemTitle}`
 };
