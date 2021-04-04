@@ -3,6 +3,8 @@
 </p>
 
 ---
+[![Unit Tests](https://github.com/hermape7/pb-todo/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/hermape7/pb-todo/actions/workflows/unit-tests.yml)
+---
 
 ### Before you start
 
