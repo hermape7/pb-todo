@@ -4,6 +4,8 @@ const {
   getPlanet
 } = require("../js/sw-client");
 
+jest.setTimeout(30000);
+
 describe("Planet Tests", () => {
   describe("GET /api/planets", () => {
     const planetNameToBeFind = "Tatooine";
