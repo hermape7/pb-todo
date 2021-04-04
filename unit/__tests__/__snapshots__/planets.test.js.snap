@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Planet Tests GET /api/planets GET planet Tatooine should be in the list 1`] = `
+Object {
+  "climate": "arid",
+  "created": Any<String>,
+  "diameter": "10465",
+  "edited": Any<String>,
+  "films": Array [
+    "http://swapi.dev/api/films/1/",
+    "http://swapi.dev/api/films/3/",
+    "http://swapi.dev/api/films/4/",
+    "http://swapi.dev/api/films/5/",
+    "http://swapi.dev/api/films/6/",
+  ],
+  "gravity": "1 standard",
+  "name": "Tatooine",
+  "orbital_period": "304",
+  "population": "200000",
+  "residents": Array [
+    "http://swapi.dev/api/people/1/",
+    "http://swapi.dev/api/people/2/",
+    "http://swapi.dev/api/people/4/",
+    "http://swapi.dev/api/people/6/",
+    "http://swapi.dev/api/people/7/",
+    "http://swapi.dev/api/people/8/",
+    "http://swapi.dev/api/people/9/",
+    "http://swapi.dev/api/people/11/",
+    "http://swapi.dev/api/people/43/",
+    "http://swapi.dev/api/people/62/",
+  ],
+  "rotation_period": "23",
+  "surface_water": "1",
+  "terrain": "desert",
+  "url": "http://swapi.dev/api/planets/1/",
+}
+`;
+
+exports[`Planet Tests GET /api/planets/:id GET planet with id 21 should be in the list 1`] = `
+Object {
+  "climate": "polluted",
+  "created": Any<String>,
+  "diameter": "13490",
+  "edited": Any<String>,
+  "films": Array [],
+  "gravity": "1 standard",
+  "name": "Eriadu",
+  "orbital_period": "360",
+  "population": "22000000000",
+  "residents": Array [
+    "http://swapi.dev/api/people/12/",
+  ],
+  "rotation_period": "24",
+  "surface_water": "unknown",
+  "terrain": "cityscape",
+  "url": "http://swapi.dev/api/planets/21/",
+}
+`;

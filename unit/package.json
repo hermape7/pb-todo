@@ -4,12 +4,14 @@
   "version": "0.0.0-development",
   "description": "This repo contains a file with simple utilities to test with unit tests",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest -- --collectCoverage"
   },
   "dependencies": {
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "lodash": "^4.17.21"
   }
 }
