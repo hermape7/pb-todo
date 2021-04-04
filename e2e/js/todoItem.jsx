@@ -16,7 +16,7 @@ var app = app || {};
 			var val = this.state.editText.trim();
 			if (val) {
 				this.props.onSave(val);
-				this.setState({editText: val});
+				this.setState({ editText: val });
 			} else {
 				this.props.onDestroy();
 			}
@@ -24,12 +24,12 @@ var app = app || {};
 
 		handleEdit: function () {
 			this.props.onEdit();
-			this.setState({editText: this.props.todo.title});
+			this.setState({ editText: this.props.todo.title });
 		},
 
 		handleKeyDown: function (event) {
 			if (event.which === ESCAPE_KEY) {
-				this.setState({editText: this.props.todo.title});
+				this.setState({ editText: this.props.todo.title });
 				this.props.onCancel(event);
 			} else if (event.which === ENTER_KEY) {
 				this.handleSubmit(event);
@@ -37,11 +37,11 @@ var app = app || {};
 		},
 
 		handleChange: function (event) {
-			this.setState({editText: event.target.value});
+			this.setState({ editText: event.target.value });
 		},
 
 		getInitialState: function () {
-			return {editText: this.props.todo.title};
+			return { editText: this.props.todo.title };
 		},
 
 		/**
@@ -85,11 +85,15 @@ var app = app || {};
 							type="checkbox"
 							checked={this.props.todo.completed}
 							onChange={this.props.onToggle}
+							data-cy="checkbox-item"
 						/>
-						<label onDoubleClick={this.handleEdit}>
+						<label onDoubleClick={this.handleEdit} data-cy="label-item">
 							{this.props.todo.title}
 						</label>
-						<button className="destroy" onClick={this.props.onDestroy} />
+						<button
+							className="destroy"
+							onClick={this.props.onDestroy}
+							data-cy="btn-item-destroy" />
 					</div>
 					<input
 						ref="editField"
@@ -98,6 +102,7 @@ var app = app || {};
 						onBlur={this.handleSubmit}
 						onChange={this.handleChange}
 						onKeyDown={this.handleKeyDown}
+						data-cy="input-edit-todo-item"
 					/>
 				</li>
 			);

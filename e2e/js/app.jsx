@@ -27,9 +27,9 @@ var app = app || {};
 		componentDidMount: function () {
 			var setState = this.setState;
 			var router = Router({
-				'/': setState.bind(this, {nowShowing: app.ALL_TODOS}),
-				'/active': setState.bind(this, {nowShowing: app.ACTIVE_TODOS}),
-				'/completed': setState.bind(this, {nowShowing: app.COMPLETED_TODOS})
+				'/': setState.bind(this, { nowShowing: app.ALL_TODOS }),
+				'/active': setState.bind(this, { nowShowing: app.ACTIVE_TODOS }),
+				'/completed': setState.bind(this, { nowShowing: app.COMPLETED_TODOS })
 			});
 			router.init('/');
 		},
@@ -63,16 +63,16 @@ var app = app || {};
 		},
 
 		edit: function (todo) {
-			this.setState({editing: todo.id});
+			this.setState({ editing: todo.id });
 		},
 
 		save: function (todoToSave, text) {
 			this.props.model.save(todoToSave, text);
-			this.setState({editing: null});
+			this.setState({ editing: null });
 		},
 
 		cancel: function () {
-			this.setState({editing: null});
+			this.setState({ editing: null });
 		},
 
 		clearCompleted: function () {
@@ -86,12 +86,12 @@ var app = app || {};
 
 			var shownTodos = todos.filter(function (todo) {
 				switch (this.state.nowShowing) {
-				case app.ACTIVE_TODOS:
-					return !todo.completed;
-				case app.COMPLETED_TODOS:
-					return todo.completed;
-				default:
-					return true;
+					case app.ACTIVE_TODOS:
+						return !todo.completed;
+					case app.COMPLETED_TODOS:
+						return todo.completed;
+					default:
+						return true;
 				}
 			}, this);
 
@@ -106,6 +106,10 @@ var app = app || {};
 						editing={this.state.editing === todo.id}
 						onSave={this.save.bind(this, todo)}
 						onCancel={this.cancel}
+						// in normal application (I don't want to solve there a babel thingy or rewrite the app)
+						// I would reuse the shared DOM locators from the /shared folder
+						// data-cy={ITEMS_DOM.getTodoItem(todo.id)}
+						data-cy={`todo-item-${todo.id}`}
 					/>
 				);
 			}, this);
@@ -134,8 +138,17 @@ var app = app || {};
 							type="checkbox"
 							onChange={this.toggleAll}
 							checked={activeTodoCount === 0}
+							// in normal application (I don't want to solve there a babel thingy or rewrite the app)
+							// I would reuse the shared DOM locators from the /shared folder
+							// data-cy={ITEMS_DOM.inputs.newItem}
+							data-cy="checkbox-toggle-all"
 						/>
-						<ul className="todo-list">
+						<ul
+							className="todo-list"
+							// in normal application (I don't want to solve there a babel thingy or rewrite the app)
+							// I would reuse the shared DOM locators from the /shared folder
+							// data-cy={ITEMS_DOM.itemList}
+							data-cy="list-todo-items">
 							{todoItems}
 						</ul>
 					</section>
@@ -144,7 +157,7 @@ var app = app || {};
 
 			return (
 				<div>
-					<header className="header">
+					<header className="header" data-cy="header">
 						<h1>todos</h1>
 						<input
 							ref="newField"
@@ -152,6 +165,10 @@ var app = app || {};
 							placeholder="What needs to be done?"
 							onKeyDown={this.handleNewTodoKeyDown}
 							autoFocus={true}
+							// in normal application (I don't want to solve there a babel thingy or rewrite the app) 
+							// I would reuse the shared DOM locators from the /shared folder
+							// data-cy={ITEMS_DOM.inputs.newItem}
+							data-cy="input-new-todo"
 						/>
 					</header>
 					{main}
@@ -165,7 +182,7 @@ var app = app || {};
 
 	function render() {
 		React.render(
-			<TodoApp model={model}/>,
+			<TodoApp model={model} />,
 			document.getElementsByClassName('todoapp')[0]
 		);
 	}

@@ -19,5 +19,6 @@
 // import "./defaults"
 
 // Alternatively you can use CommonJS syntax:
-require('./commands')
-require('cypress-axe')
+import "./commands";
+import "cypress-axe";
+import "cypress-real-events/support";
