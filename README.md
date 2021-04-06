@@ -18,6 +18,7 @@ E2E tests:
 - I am using seeding the UI via the model of the app (in other apps it is usually the API or seeding the database).
 - The structure is obvious but I would like to point out that in the shared folder there are files with data attributes that should be used even in the source code but the app is written in an older way and I didn't want to change the whole implementation. So what is the benefit there - when the data-cy attributes need to be changed then it is changed only in one place (for source code and for e2e/cypress tests).
 - Under the support folder, there are custom functions that helps with writing tests (and with verifications). There are not "custom cypress commands" but they can be easily re-written to them.
+- Some kind of bonus: I wrote a test for destroying the todo item by hovering and clicking the destroy button with help of the cypress-real-event library which is very convenient for this.
 
 I would be glad to here the feedback for these tests. 
 
