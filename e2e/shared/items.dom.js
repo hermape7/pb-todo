@@ -7,6 +7,9 @@ export const ITEMS_DOM = {
     all: "checkbox-toggle-all",
     item: "checkbox-item"
   },
+  buttons: {
+    destroy: "btn-item-destroy"
+  },
   itemList: "list-todo-items",
   getTodoItem: itemTitle => `item-${itemTitle}`
 };

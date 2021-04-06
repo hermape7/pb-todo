@@ -10,4 +10,5 @@ describe("Item Tests", function () {
   ItemTests.editTodoItemClearInputTest();
   ItemTests.editTodoItemConcatTest();
   ItemTests.completeTodoTest();
+  ItemTests.destroyItemTest();
 });
